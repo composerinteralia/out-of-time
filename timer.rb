@@ -15,13 +15,13 @@ class Timer
 
   def self.set_interval(callback, seconds)
     interval = self.new(callback, seconds)
-    interval.set!
+    interval.set
     @intervals << interval
     @intervals.length - 1
   end
 
   def self.clear_interval(index)
-    @intervals[index].clear!
+    @intervals[index].clear
   end
 
   def self.wait_for_intervals
@@ -32,7 +32,7 @@ class Timer
     @callback, @seconds, @active = callback, seconds, true
   end
 
-  def set!
+  def set
     Thread.new do
       while active
         Timer.set_timeout(callback, seconds).join
@@ -40,7 +40,7 @@ class Timer
     end
   end
 
-  def clear!
+  def clear
     @active = false
   end
 
