@@ -1,27 +1,31 @@
+`gem install time_out`
+
 ```ruby
-Timer.set_timeout(-> () {
+require 'time_out'
+
+TimeOut.set_timeout(-> () {
   puts "World"
 }, 10)
 
 i = 0
-interval = Timer.set_interval(-> () {
+interval = TimeOut.set_interval(-> () {
   i += 1
   puts i
 }, 1)
 
-Timer.set_timeout(-> () {
+TimeOut.set_timeout(-> () {
   puts "Awesome"
 }, 5)
 
-Timer.set_timeout(-> () {
-  Timer.clear_interval(interval)
+TimeOut.set_timeout(-> () {
+  TimeOut.clear_interval(interval)
 }, 20)
 
 puts "Hello"
 sleep 15
 puts "!!!"
 
-Timer.wait_for_intervals
+TimeOut.wait_for_intervals
 ```
 
 outputs:

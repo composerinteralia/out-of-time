@@ -1,4 +1,4 @@
-class Timer
+class TimeOut
   @intervals = [];
 
   def self.set_timeout(callback, seconds)
@@ -35,7 +35,7 @@ class Timer
   def set
     Thread.new do
       while active
-        Timer.set_timeout(callback, seconds).join
+        TimeOut.set_timeout(callback, seconds).join
       end
     end
   end
