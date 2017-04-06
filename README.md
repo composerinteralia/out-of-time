@@ -1,4 +1,12 @@
+# Time Out
+
+JavaScript-inpired asynchronous `setTimeout` and `setInterval`
+
+## Getting started
+
 `gem install time_out`
+
+With as many stabby lambdas as possible to make it look sort of like ES6:
 
 ```ruby
 require 'time_out'
